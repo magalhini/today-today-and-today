@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-pnpm --no-turbopack)",
+      "Bash(mv PRD.md plans readme.md /tmp/_ttt_backup)",
+      "Bash(mkdir -p /tmp/_ttt_backup)",
+      "Bash(mv PRD.md plans readme.md /tmp/_ttt_backup/)",
+      "Bash(printf \"N\\\\nY\\\\n\")",
+      "Bash(yes)"
+    ]
+  }
+}
