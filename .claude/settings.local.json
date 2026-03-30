@@ -6,7 +6,23 @@
       "Bash(mkdir -p /tmp/_ttt_backup)",
       "Bash(mv PRD.md plans readme.md /tmp/_ttt_backup/)",
       "Bash(printf \"N\\\\nY\\\\n\")",
-      "Bash(yes)"
+      "Bash(yes)",
+      "Bash(cp /tmp/_ttt_backup/PRD.md /tmp/_ttt_backup/readme.md .)",
+      "Bash(cp -r /tmp/_ttt_backup/plans .)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm approve-builds:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(mv /tmp/pkg.json package.json)",
+      "Bash(pnpm install:*)",
+      "Bash(npx drizzle-kit:*)",
+      "Bash(pnpm:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\" http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/login)",
+      "Bash(kill 40206)",
+      "Bash(curl -s http://localhost:3000/about -o /dev/null -w \"%{http_code}\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f 'next dev')",
+      "Bash(curl -s \"https://api.openweathermap.org/data/2.5/weather?lat=45.49838017472341&lon=-73.55456734237282&appid=d191e50724f3c6005a0207f76b8c98a4&units=metric\")"
     ]
   }
 }

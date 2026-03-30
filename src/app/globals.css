@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #FAF8F5;
+  --color-cream-dark: #F0EDE8;
+  --color-charcoal: #2C2C2C;
+  --color-charcoal-light: #4A4A4A;
+  --color-charcoal-muted: #8A8A8A;
+  --color-terracotta: #C4775B;
+  --color-terracotta-light: #D4917A;
+  --color-sage: #8B9F82;
+  --color-error: #C45B5B;
+
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Lora", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::selection {
+  background-color: var(--color-terracotta-light);
+  color: white;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use the display serif */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Body text uses the reading serif */
+.prose, .prose p, .prose li, .prose blockquote {
+  font-family: var(--font-body);
+}
+
+/* Gorgeous blockquotes */
+blockquote, .prose blockquote {
+  font-family: var(--font-body);
+  font-style: italic;
+  border-left: 3px solid var(--color-terracotta);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  color: var(--color-charcoal-light);
+}
+
+/* Inputs inherit the beauty */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  font-family: var(--font-sans);
+  background: transparent;
+}
+
+/* Focus ring — only on interactive controls, not writing surfaces */
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* No focus ring on text inputs — keep them clean */
+.prose-editor:focus-visible,
+.prose-editor [contenteditable]:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* ---- Tiptap Editor ---- */
+.prose-editor {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-charcoal-light);
+}
+
+@media (min-width: 768px) {
+  .prose-editor {
+    font-size: 1.25rem;
+  }
+}
+
+.prose-editor p {
+  margin-bottom: 1em;
+}
+
+.prose-editor p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-editor blockquote {
+  font-style: italic;
+  border-left: 3px solid var(--color-terracotta);
+  padding-left: 1.5rem;
+  margin: 1.5em 0;
+  color: var(--color-charcoal-light);
+}
+
+.prose-editor blockquote p {
+  margin-bottom: 0.5em;
+}
+
+.prose-editor strong {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.prose-editor em {
+  font-style: italic;
+}
+
+.prose-editor a {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-editor a:hover {
+  color: var(--color-terracotta-light);
+}
+
+.prose-editor ul, .prose-editor ol {
+  padding-left: 1.5rem;
+  margin: 1em 0;
+}
+
+.prose-editor li {
+  margin-bottom: 0.25em;
+}
+
+/* Placeholder */
+.prose-editor p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: rgba(138, 138, 138, 0.25);
+  pointer-events: none;
+  height: 0;
+}
+
+/* ---- Post body rendering ---- */
+.post-body {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-charcoal-light);
+}
+
+@media (min-width: 768px) {
+  .post-body {
+    font-size: 1.25rem;
+  }
+}
+
+.post-body p {
+  margin-bottom: 1em;
+}
+
+.post-body p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body blockquote {
+  font-style: italic;
+  border-left: 3px solid var(--color-terracotta);
+  padding-left: 1.5rem;
+  margin: 1.5em 0;
+  color: var(--color-charcoal-light);
+}
+
+.post-body strong {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.post-body a {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-body a:hover {
+  color: var(--color-terracotta-light);
+}
+
+.post-body ul, .post-body ol {
+  padding-left: 1.5rem;
+  margin: 1em 0;
+}
+
+.post-body li {
+  margin-bottom: 0.25em;
 }
