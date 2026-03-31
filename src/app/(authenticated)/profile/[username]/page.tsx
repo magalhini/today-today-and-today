@@ -61,11 +61,11 @@ export default async function ProfilePage({
         </h1>
         <div className="flex items-center gap-3 text-sm text-charcoal-muted">
           <span>@{author.username}</span>
-          <span className="text-charcoal-muted/30">·</span>
+          <span className="text-charcoal-muted/50">·</span>
           <span>Member since {memberSince}</span>
           {author.location && (
             <>
-              <span className="text-charcoal-muted/30">·</span>
+              <span className="text-charcoal-muted/50">·</span>
               <span>{author.location}</span>
             </>
           )}

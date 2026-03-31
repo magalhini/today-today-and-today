@@ -6,7 +6,7 @@ export type AtmosphericType =
   | "golden_blue_hour"
   | "sunset_offset"
   | "poetic_season"
-  | "day_length"
+  | "time_of_day"
   | "weather_condition"
   | "temperature";
 
@@ -111,31 +111,73 @@ function poeticSeasonDetail(date: Date, latitude?: number): AtmosphericDetail {
   };
 }
 
-// ---- Day Length ----
+// ---- Time of Day ----
 
-function dayLengthDetail(
-  sunrise: number,
-  sunset: number
-): AtmosphericDetail {
-  const lengthMinutes = (sunset - sunrise) / 60;
-  const hours = Math.floor(lengthMinutes / 60);
-  const minutes = Math.round(lengthMinutes % 60);
+function timeOfDayDetail(now: Date, sunrise: number, sunset: number): AtmosphericDetail {
+  const nowUnix = Math.floor(now.getTime() / 1000);
+  const hour = now.getHours();
 
-  let displayText: string;
-  if (hours >= 14) {
-    displayText = `A long day, with ${hours} hours of light`;
-  } else if (hours <= 9) {
-    displayText = `A short day, with only ${hours} hours of light`;
+  const morningPhrases = [
+    "The morning was soft",
+    "The morning light was gentle",
+    "The morning air was still",
+    "The morning had a quiet glow",
+    "The morning was unhurried",
+    "The morning was tender",
+  ];
+
+  const afternoonPhrases = [
+    "The afternoon was creamy",
+    "The afternoon light was warm",
+    "The afternoon was languid",
+    "The afternoon stretched out gently",
+    "The afternoon was golden and slow",
+    "The afternoon was draped in light",
+  ];
+
+  const eveningPhrases = [
+    "The evening was settling in",
+    "The evening air was cool and quiet",
+    "The evening had a violet hue",
+    "The evening was winding down softly",
+    "The evening was gentle",
+    "The evening was dimming sweetly",
+  ];
+
+  const nightPhrases = [
+    "The night was deep and still",
+    "The night was quiet",
+    "The night wrapped everything in silence",
+    "The night was soft and dark",
+    "The night was velvet",
+    "The night hummed faintly",
+  ];
+
+  let phrases: string[];
+  let period: string;
+
+  if (nowUnix < sunrise) {
+    phrases = nightPhrases;
+    period = "night";
+  } else if (hour < 12) {
+    phrases = morningPhrases;
+    period = "morning";
+  } else if (hour < 17) {
+    phrases = afternoonPhrases;
+    period = "afternoon";
+  } else if (nowUnix < sunset + 3600) {
+    phrases = eveningPhrases;
+    period = "evening";
   } else {
-    displayText =
-      minutes > 0
-        ? `A day with ${hours} hours and ${minutes} minutes of light`
-        : `A day with ${hours} hours of light`;
+    phrases = nightPhrases;
+    period = "night";
   }
 
+  const displayText = phrases[Math.floor(Math.random() * phrases.length)];
+
   return {
-    type: "day_length",
-    value: `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`,
+    type: "time_of_day",
+    value: period,
     displayText,
   };
 }
@@ -329,15 +371,15 @@ function temperatureDetail(temp: number): AtmosphericDetail {
   const rounded = Math.round(temp);
   let displayText: string;
 
-  if (rounded <= -10) displayText = `It was bitterly cold, ${rounded}°`;
-  else if (rounded <= 0) displayText = `The air was freezing, ${rounded}°`;
-  else if (rounded <= 5) displayText = `A cold ${rounded}° outside`;
-  else if (rounded <= 12) displayText = `A cool ${rounded}° in the air`;
-  else if (rounded <= 18) displayText = `A mild ${rounded}° outside`;
-  else if (rounded <= 24) displayText = `A pleasant ${rounded}°`;
-  else if (rounded <= 30) displayText = `A warm ${rounded}° outside`;
-  else if (rounded <= 35) displayText = `A hot ${rounded}° in the air`;
-  else displayText = `A sweltering ${rounded}° outside`;
+  if (rounded <= -10) displayText = `It was bitterly cold, C${rounded}°`;
+  else if (rounded <= 0) displayText = `The air was freezing, C${rounded}°`;
+  else if (rounded <= 5) displayText = `A cold C${rounded}° outside`;
+  else if (rounded <= 12) displayText = `A cool C${rounded}° in the air`;
+  else if (rounded <= 18) displayText = `A mild C${rounded}° outside`;
+  else if (rounded <= 24) displayText = `A pleasant C${rounded}°`;
+  else if (rounded <= 30) displayText = `A warm C${rounded}° outside`;
+  else if (rounded <= 35) displayText = `A hot C${rounded}° in the air`;
+  else displayText = `A sweltering C${rounded}° outside`;
 
   return {
     type: "temperature",
@@ -383,7 +425,7 @@ export function generateAtmosphericDetails(
     const secondary: AtmosphericDetail[] = [];
     secondary.push(moonPhaseDetail(now));
     secondary.push(poeticSeasonDetail(now, input.latitude));
-    secondary.push(dayLengthDetail(w.sunrise, w.sunset));
+    secondary.push(timeOfDayDetail(now, w.sunrise, w.sunset));
 
     // Pick 1-2 from priority, fill rest from secondary
     const shuffledPriority = shuffle(priority);

@@ -123,7 +123,7 @@ export function AtmosphericHeader({
   if (loading) {
     return (
       <div className="mb-8 h-6">
-        <span className="text-xs text-charcoal-muted/30 italic font-[family-name:var(--font-body)]">
+        <span className="text-xs text-charcoal-muted/50 italic font-[family-name:var(--font-body)]">
           Sensing the atmosphere...
         </span>
       </div>
@@ -137,7 +137,7 @@ export function AtmosphericHeader({
       <p className="font-[family-name:var(--font-serif)] italic text-charcoal-muted text-base md:text-lg leading-relaxed">
         {details.map((d, i) => (
           <span key={d.type}>
-            {i > 0 && <span className="text-charcoal-muted/40"> · </span>}
+            {i > 0 && <span className="text-charcoal-muted/50"> · </span>}
             {d.displayText}
           </span>
         ))}

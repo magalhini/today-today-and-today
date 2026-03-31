@@ -139,7 +139,7 @@ export function Editor({
         <p className="text-xs uppercase tracking-[0.2em] text-charcoal-muted/60">
           Writing for {dateLabel}
           {detectedLocation && (
-            <span className="text-charcoal-muted/40"> · {detectedLocation}</span>
+            <span className="text-charcoal-muted/50"> · {detectedLocation}</span>
           )}
         </p>
         <div className="flex items-center gap-4">
@@ -150,7 +150,7 @@ export function Editor({
           >
             {wordCount} / {WORD_LIMIT}
           </span>
-          <span className="text-xs text-charcoal-muted/40">
+          <span className="text-xs text-charcoal-muted/50">
             {saveState === "saving"
               ? "Saving..."
               : saveState === "saved"
@@ -242,7 +242,7 @@ export function Editor({
           ) : (
             <button
               onClick={() => setShowDeleteConfirm(true)}
-              className="text-xs uppercase tracking-wider text-charcoal-muted/40 hover:text-error transition-colors"
+              className="text-xs uppercase tracking-wider text-charcoal-muted/50 hover:text-error transition-colors"
             >
               Delete
             </button>

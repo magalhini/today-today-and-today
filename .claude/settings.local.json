@@ -22,7 +22,13 @@
       "Bash(curl -s http://localhost:3000/about -o /dev/null -w \"%{http_code}\")",
       "Bash(pkill -f \"next dev\")",
       "Bash(pkill -f 'next dev')",
-      "Bash(curl -s \"https://api.openweathermap.org/data/2.5/weather?lat=45.49838017472341&lon=-73.55456734237282&appid=d191e50724f3c6005a0207f76b8c98a4&units=metric\")"
+      "Bash(curl -s \"https://api.openweathermap.org/data/2.5/weather?lat=45.49838017472341&lon=-73.55456734237282&appid=d191e50724f3c6005a0207f76b8c98a4&units=metric\")",
+      "Bash(npx tsc:*)",
+      "Bash(grep -rn '' /Users/ricardo/Documents/projects/today-today-and-today/src --include=*.tsx)",
+      "Bash(ls:*)",
+      "Bash(npx next:*)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill:*)"
     ]
   }
 }

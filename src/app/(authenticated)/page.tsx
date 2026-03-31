@@ -144,7 +144,7 @@ export default async function DashboardPage({
             href="/write"
             className="inline-block py-3.5 px-10 bg-charcoal text-cream text-sm uppercase tracking-[0.15em] hover:bg-charcoal-light transition-colors"
           >
-            Write today&apos;s entry
+            Write today&#8217;s entry
           </Link>
         </div>
       </div>

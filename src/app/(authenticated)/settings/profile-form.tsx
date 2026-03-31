@@ -49,7 +49,7 @@ export function ProfileForm({
             type="text"
             defaultValue={location}
             placeholder="Where you write from"
-            className="w-full border-b border-charcoal-muted/30 bg-transparent py-2 text-charcoal placeholder:text-charcoal-muted/40 focus:border-terracotta transition-colors"
+            className="w-full border-b border-charcoal-muted/30 bg-transparent py-2 text-charcoal placeholder:text-charcoal-muted/50 focus:border-terracotta transition-colors"
           />
         </div>
       </div>

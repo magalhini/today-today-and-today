@@ -169,10 +169,10 @@ export function CoverImageUpload({
               </p>
             ) : (
               <>
-                <p className="text-xs uppercase tracking-wider text-charcoal-muted/40">
+                <p className="text-xs uppercase tracking-wider text-charcoal-muted/50">
                   Add a cover image
                 </p>
-                <p className="text-xs text-charcoal-muted/30 mt-1">
+                <p className="text-xs text-charcoal-muted/50 mt-1">
                   Drag & drop or click &middot; Max 4MB
                 </p>
               </>

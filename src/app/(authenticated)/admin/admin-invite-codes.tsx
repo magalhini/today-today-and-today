@@ -46,7 +46,7 @@ export function AdminInviteCodes({ codes }: { codes: InviteCode[] }) {
                   <code
                     className={`font-mono text-xs tracking-wider ${
                       status !== "available"
-                        ? "text-charcoal-muted/40"
+                        ? "text-charcoal-muted/50"
                         : "text-charcoal"
                     }`}
                   >

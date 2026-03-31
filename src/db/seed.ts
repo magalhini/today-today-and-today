@@ -133,7 +133,7 @@ const seededPosts = db.insert(posts)
     {
       authorId: seededUsers[1].id,
       title: "The café on Saint-Laurent",
-      body: `<p>There is a café on Saint-Laurent where the chairs face the window and nobody talks. I sat there for an hour this morning watching the snow gather on the sill. The barista knows my order. She doesn't ask anymore.</p><p>I think about how many mornings I have left like this one — quiet, unremarkable, <em>perfect</em>. The kind you forget until years later when you'd give anything to sit in that chair again.</p><blockquote><p>The coffee was too hot. I burned my tongue. I didn't mind.</p></blockquote>`,
+      body: `<p>There is a café on Saint-Laurent where the chairs face the window and nobody talks. I sat there for an hour this morning watching the snow gather on the sill. The barista knows my order. She doesn\u2019t ask anymore.</p><p>I think about how many mornings I have left like this one — quiet, unremarkable, <em>perfect</em>. The kind you forget until years later when you\u2019d give anything to sit in that chair again.</p><blockquote><p>The coffee was too hot. I burned my tongue. I didn\u2019t mind.</p></blockquote>`,
       wordCount: 85,
       status: "published",
       draftStartedAt: daysAgo(2),
@@ -153,7 +153,7 @@ const seededPosts = db.insert(posts)
     {
       authorId: seededUsers[0].id,
       title: "On silence in the Tiergarten",
-      body: `<p>Berlin is loud in a way that makes silence feel earned. I walked through the Tiergarten this afternoon after the rain stopped. The leaves were still dripping. No one was on the path.</p><p>I stood at the edge of the pond and listened to <em>absolutely nothing</em> for what felt like five minutes. It was probably thirty seconds. Time does that when you're alone and paying attention.</p><p>I should do this more often. I never do.</p>`,
+      body: `<p>Berlin is loud in a way that makes silence feel earned. I walked through the Tiergarten this afternoon after the rain stopped. The leaves were still dripping. No one was on the path.</p><p>I stood at the edge of the pond and listened to <em>absolutely nothing</em> for what felt like five minutes. It was probably thirty seconds. Time does that when you\u2019re alone and paying attention.</p><p>I should do this more often. I never do.</p>`,
       wordCount: 76,
       status: "published",
       draftStartedAt: daysAgo(0),
@@ -207,9 +207,9 @@ db.insert(atmosphericDetails)
     },
     {
       postId: seededPosts[2].id,
-      type: "day_length",
-      value: "12h 34m",
-      displayText: "A day with 12 hours and 34 minutes of light",
+      type: "time_of_day",
+      value: "afternoon",
+      displayText: "The afternoon was creamy",
     },
   ])
   .run();

@@ -46,7 +46,7 @@ export async function createDraftAction(): Promise<
     .all();
 
   if (todayPosts.length >= 5) {
-    return { error: "You've reached the daily limit of 5 entries." };
+    return { error: "You\u2019ve reached the daily limit of 5 entries." };
   }
 
   const post = db

@@ -47,7 +47,7 @@ export function AdminPostRow({ post }: { post: PostData }) {
       </td>
       <td className="py-3 pr-4 text-charcoal-muted">
         {post.authorName}
-        <span className="text-charcoal-muted/40 ml-1 text-xs">
+        <span className="text-charcoal-muted/50 ml-1 text-xs">
           @{post.authorUsername}
         </span>
       </td>
@@ -81,7 +81,7 @@ export function AdminPostRow({ post }: { post: PostData }) {
         ) : (
           <button
             onClick={() => setShowDelete(true)}
-            className="text-xs text-charcoal-muted/30 hover:text-error transition-colors"
+            className="text-xs text-charcoal-muted/50 hover:text-error transition-colors"
           >
             Delete
           </button>

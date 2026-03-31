@@ -72,7 +72,7 @@ export function ISeeYou({
           strokeLinecap="round"
           strokeLinejoin="round"
           className={`transition-colors ${
-            acknowledged ? "text-terracotta" : "text-charcoal-muted/40 group-hover/btn:text-terracotta/60"
+            acknowledged ? "text-terracotta" : "text-charcoal-muted/50 group-hover/btn:text-terracotta/60"
           }`}
         >
           <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" />
@@ -113,7 +113,7 @@ export function ISeeYou({
                     className="text-xs text-charcoal-muted"
                   >
                     {a.displayName}
-                    <span className="text-charcoal-muted/40 ml-1">
+                    <span className="text-charcoal-muted/50 ml-1">
                       @{a.username}
                     </span>
                   </li>

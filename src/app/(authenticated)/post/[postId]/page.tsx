@@ -128,7 +128,7 @@ export default async function PostPage({
             <p className="font-[family-name:var(--font-serif)] italic text-charcoal-muted text-base md:text-lg mt-4">
               {atmosphere.map((a, i) => (
                 <span key={a.id}>
-                  {i > 0 && <span className="text-charcoal-muted/40"> · </span>}
+                  {i > 0 && <span className="text-charcoal-muted/50"> · </span>}
                   {a.displayText}
                 </span>
               ))}

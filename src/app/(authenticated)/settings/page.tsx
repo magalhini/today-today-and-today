@@ -61,7 +61,7 @@ export default async function SettingsPage() {
         </div>
 
         <p className="font-[family-name:var(--font-body)] text-charcoal-muted text-sm leading-relaxed mb-8">
-          Share an invite code with someone you&apos;d like to write alongside.
+          Share an invite code with someone you&#8217;d like to write alongside.
           Each code can be used once and expires after 30 days.
         </p>
 

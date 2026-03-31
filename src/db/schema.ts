@@ -83,7 +83,7 @@ export const atmosphericDetails = sqliteTable("atmospheric_details", {
       "golden_blue_hour",
       "sunset_offset",
       "poetic_season",
-      "day_length",
+      "time_of_day",
       "weather_condition",
       "temperature",
     ],

@@ -97,7 +97,7 @@ export function AdminUserRow({
           ) : (
             <button
               onClick={() => setShowGrant(true)}
-              className="text-xs text-charcoal-muted/40 hover:text-terracotta transition-colors"
+              className="text-xs text-charcoal-muted/50 hover:text-terracotta transition-colors"
             >
               +
             </button>
@@ -127,7 +127,7 @@ export function AdminUserRow({
             ) : (
               <button
                 onClick={() => setShowDelete(true)}
-                className="text-xs text-charcoal-muted/30 hover:text-error transition-colors"
+                className="text-xs text-charcoal-muted/50 hover:text-error transition-colors"
               >
                 Delete
               </button>

@@ -1,7 +1,7 @@
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { logoutAction } from "@/lib/actions";
 import Link from "next/link";
+import { UserDropdown } from "./user-dropdown";
 
 export default async function AuthenticatedLayout({
   children,
@@ -37,25 +37,12 @@ export default async function AuthenticatedLayout({
             {user.role === "admin" && (
               <Link
                 href="/admin"
-                className="text-xs uppercase tracking-wider text-charcoal-muted/40 hover:text-terracotta transition-colors hidden sm:inline"
+                className="text-xs uppercase tracking-wider text-charcoal-muted/50 hover:text-terracotta transition-colors hidden sm:inline"
               >
                 Admin
               </Link>
             )}
-            <Link
-              href="/settings"
-              className="text-xs uppercase tracking-wider text-charcoal-muted hover:text-terracotta transition-colors hidden sm:inline"
-            >
-              {user.username}
-            </Link>
-            <form action={logoutAction}>
-              <button
-                type="submit"
-                className="text-xs uppercase tracking-wider text-charcoal-muted hover:text-terracotta transition-colors"
-              >
-                Sign out
-              </button>
-            </form>
+            <UserDropdown username={user.username} />
           </div>
         </nav>
       </header>
@@ -66,7 +53,7 @@ export default async function AuthenticatedLayout({
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <Link
             href="/about"
-            className="text-xs text-charcoal-muted/40 font-[family-name:var(--font-body)] italic hover:text-terracotta transition-colors"
+            className="text-xs text-charcoal-muted/50 font-[family-name:var(--font-body)] italic hover:text-terracotta transition-colors"
           >
             About Today, Today and Today
           </Link>
