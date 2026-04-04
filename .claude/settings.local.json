@@ -28,7 +28,14 @@
       "Bash(ls:*)",
       "Bash(npx next:*)",
       "Bash(lsof -ti:3000)",
-      "Bash(xargs kill:*)"
+      "Bash(xargs kill:*)",
+      "Bash(npx pnpm:*)",
+      "Bash(fnm list:*)",
+      "Bash(find node_modules/next -name *.md -maxdepth 2)",
+      "Bash(node:*)",
+      "Bash(curl -s http://localhost:3000 -H 'Accept: text/html' -w '\\\\n\\\\nHTTP_CODE: %{http_code}\\\\nCONTENT_TYPE: %{content_type}')",
+      "Bash(curl -s http://localhost:3000/login -H 'Accept: text/html' -w '\\\\n\\\\nHTTP_CODE: %{http_code}\\\\nCONTENT_TYPE: %{content_type}')",
+      "Bash(curl:*)"
     ]
   }
 }

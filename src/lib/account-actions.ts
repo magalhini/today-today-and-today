@@ -18,6 +18,7 @@ export async function updateProfileAction(
 
   const displayName = formData.get("displayName") as string;
   const location = formData.get("location") as string;
+  const bio = formData.get("bio") as string;
 
   if (!displayName?.trim()) {
     return { error: "Display name is required." };
@@ -27,6 +28,7 @@ export async function updateProfileAction(
     .set({
       displayName: displayName.trim(),
       location: location?.trim() || null,
+      bio: bio?.trim().slice(0, 160) || null,
       updatedAt: new Date().toISOString(),
     })
     .where(eq(users.id, session.user.id))

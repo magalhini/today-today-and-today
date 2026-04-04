@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const publicPaths = ["/login", "/register", "/about"];
+const publicPaths = ["/login", "/register", "/about", "/u"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow public paths and static assets

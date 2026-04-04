@@ -44,6 +44,7 @@ export default async function SettingsPage() {
         <ProfileForm
           displayName={user.displayName}
           location={user.location || ""}
+          bio={user.bio || ""}
           username={user.username}
           email={user.email}
         />

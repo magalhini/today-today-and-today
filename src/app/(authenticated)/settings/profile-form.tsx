@@ -6,11 +6,13 @@ import { updateProfileAction } from "@/lib/account-actions";
 export function ProfileForm({
   displayName,
   location,
+  bio,
   username,
   email,
 }: {
   displayName: string;
   location: string;
+  bio: string;
   username: string;
   email: string;
 }) {
@@ -52,6 +54,21 @@ export function ProfileForm({
             className="w-full border-b border-charcoal-muted/30 bg-transparent py-2 text-charcoal placeholder:text-charcoal-muted/50 focus:border-terracotta transition-colors"
           />
         </div>
+      </div>
+
+      <div>
+        <label className="block text-xs uppercase tracking-wider text-charcoal-muted mb-2">
+          Bio
+        </label>
+        <textarea
+          name="bio"
+          defaultValue={bio}
+          maxLength={160}
+          rows={2}
+          placeholder="A few words about yourself"
+          className="w-full border-b border-charcoal-muted/30 bg-transparent py-2 text-charcoal placeholder:text-charcoal-muted/50 focus:border-terracotta transition-colors resize-none"
+        />
+        <span className="text-xs text-charcoal-muted/40 mt-1 block">160 characters max</span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
